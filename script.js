@@ -13,40 +13,38 @@ resetbtn.addEventListener("click",()=>{
 // let pokearray = [];
 
 async function fetchPokemon(){
-    for (let i=1;i<=150;i++){
-        let fetchdata = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-        let result = await fetchdata.json();
-        console.log(result);
-         // let array = result.results;
-         // console.log(array);
-        new_data(result,i);
-        typegenerate(result);
-    }
+  
+  for (let i=1;i<151;i++){
+    let fetchdata = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    let result = await fetchdata.json();
+    new_data(result,i);
+    // typegenerate(result);
+    // fetchPokemon();
+  }
 
 }
 fetchPokemon();
 
 
-function new_data(pokemon,i){
+function new_data(pok,i){
 
   let contains=document.createElement("div");
-  let name=pokemon.species.name;
+  let name=pok.species.name;
   // console.log(name);
 
-  let image=pokemon.sprites.front_default
+  let image=pok.sprites.front_default
   // console.log(image);
 
-  let typesof=pokemon.types[0].type.name;
+  let typesof=pok.types[0].type.name;
   console.log(typesof);
 
-  // console.log(pokemon);
+  // console.log(pok);
   let abl=""
-  pokemon.abilities.forEach(e=>{
+  pok.abilities.forEach(e=>{
       abl=abl+" "+e.ability.name
   })
 
-   // console.log(abl);
-   contains.classList.add("outer_card_container");
+   contains.classList.add("outer_card");
    contains.innerHTML=
   `<div class="card_conatiner">
     <div class="front_card">
@@ -59,28 +57,13 @@ function new_data(pokemon,i){
       <p class="type">${typesof}</p>
     </div>
     <div class="backcard">
+    <p class="numbe2">#${i}</p>
       <img src=${image} alt="Bulbasaur" />
       <p class="name">${name}</p>
       <p class="Abilities">Abilities:${abl}</p>
     </div>
-  </div>
-    `
+  </div>`
+
   cardscontainer.appendChild(contains);
 
-}
-
-
-let arrOftype=[];
-
-function options(pokemon){
-        
-  let types= pokemon.types[0].type.name
-       
-  if(!arrOftype.includes(types)){
-    arrOftype.push(`${types}`)
-    let option=document.createElement("option");
-    option.setAttribute("value",`${types}`);
-    option.innerText=types;
-    document.querySelector(".type-filter").appendChild(option) 
-  }
 }
