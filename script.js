@@ -35,7 +35,7 @@ function new_data(pok,i){
   let name=pok.species.name;
 
   let image=pok.sprites.front_default
-  let typesof=pok.types[0].type.name;
+  let types=pok.types[0].type.name;
 
   let ablity=""
   pok.abilities.forEach(e=>{
@@ -44,7 +44,7 @@ function new_data(pok,i){
 
    contains.classList.add("outer_card");
    contains.innerHTML=
-  `<div class="cardConatiner">
+  `<div class="cardConatiner" id="${types}">
     <div class="front_card">
       <p class="number">#${i}</p>
       <img
@@ -53,7 +53,7 @@ function new_data(pok,i){
         class="fimg"
       />
       <p class="name">${name}</p>
-      <p class="type">${typesof}</p>
+      <p class="type">${types}</p>
     </div>
     <div class="backcard">
     <p class="numbe2">#${i}</p>

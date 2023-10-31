@@ -100,7 +100,7 @@ button{
   position: relative;
   height: 330px;
   width: 250px;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   border: 2px solid black;
   border-radius: 10px;
   transition: 0.6s linear;
@@ -121,7 +121,7 @@ button{
   backface-visibility: hidden;
 }
 .backcard {
-  background-color: aqua;
+  /* background-color: aqua; */
   transform: rotateY(180deg);
   border-radius: 10px;
 
@@ -157,6 +157,51 @@ button{
 }
 .outer_card:hover .cardConatiner{
   transform: rotateY(180deg); 
+}
+#grass{
+  background-color: #A0CF59;
+}
+#rock{
+  background-color: #A8922C;
+}
+#ghost{
+  background-color: #826AA8;
+}
+#ice{
+  background-color: #5AC7E8;
+}
+#dragon{
+  background-color: #DCAA2B;
+}
+#ground{
+  background-color: #F7E049;
+}
+#fairy{
+  background-color: #FDBDEA;
+}
+#fighting{
+  background-color: #4E98C7;
+}
+#psychic{
+  background-color: #F46EBD;
+}
+#fire{
+  background-color: #FD842F;
+}
+#water{
+  background-color: #4E98C7;
+}
+#bug{
+  background-color: #79A449;
+}
+#normal{
+  background-color: #BFBFBF;
+}
+#poison{
+  background-color: #BD86CC;
+}
+#electric{
+  background-color: #EFD73F;
 }
 
 @keyframes click {
